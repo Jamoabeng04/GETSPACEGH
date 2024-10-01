@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>login</title>
+        <link href="{% static 'css/loginStyle.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                {{ message.message }}
+            {% endfor %}
+        {% endif%}
+        <div class="main">
+            <form method="POST" action="log_in">
+                {% csrf_token %}
+                <p class="start"> LOGIN</p>
+
+                <label>Email</label>
+                <input type="email" name="email" required >
+
+                <label>Username</label>
+                <input type="text" name="username" required>
+
+                <label>Password</label>
+                <input type="password" name="password" required>
+
+                <button class="signup_b">login </button>
+
+                <div class="options">
+                    <button class="Google_b">Continue With</br> Google</button>
+                    <p>don't have an account?<a href="{%url 'loginToSignUp' %}"></br>Signup Here😊</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="side">
+            <h2><i>ACCOMMODATEGH</i></h2>
+            <p class="side_info">welcome back!</br>Login to continue experiencing us😍</p>
+        </div>
+    </body>
+</html>

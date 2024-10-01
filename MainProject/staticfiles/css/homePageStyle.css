@@ -1,0 +1,477 @@
+body{
+    background-color: rgba(205, 222, 238, 0.719);
+}
+
+.top{
+    background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("/static/images/house4.jpg");
+    background-size: cover;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.title{
+    width: 0ch;
+    overflow: hidden;
+    font-size: 300%;
+    font-weight: lighter;
+    color: white;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    animation: type 2s steps(15) 1s infinite alternate, 
+                blink 0.5s steps(1) infinite ;
+}
+
+.title2{
+    width: 100%;
+    font-size: 300%;
+    font-weight: lighter;
+    color: white;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    text-align: center;
+}
+
+.des{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    position: relative;
+    top: 10vh;
+}
+
+@keyframes type {
+    to{
+        width: 15ch;
+    }
+}
+
+@keyframes blink {
+    from{
+        border-color: transparent;
+    }
+    50%{
+        border-color: white;
+    }
+    to{
+        border-color: transparent;
+    }
+}
+
+.up_nav{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.dn_nav{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.dn_nav:hover , .up_nav:hover{
+    font-size: 25px;
+    text-shadow: 5px 5px 5px  black;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 30px;
+    margin: 15px;
+    align-items: center;
+    backdrop-filter: blur(00px);
+    box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+    border: solid rgba(255,255,255,0.18);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.search{
+    align-self: center;
+    position: relative;
+    top: 20vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.error{
+    width: 100%;
+    height: 30px;
+    color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+input{
+    width: 90%;
+    height: 5vh;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    backdrop-filter: blur(0px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.541);
+    border: solid rgba(255, 255, 255, 0.418);
+}
+
+.submit{
+    width: 7%;
+    height: 90%;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(150, 209, 243);
+}
+
+section{
+    position: static;
+}
+
+aside{
+    position: sticky;
+    top: 10px;
+    height: 90vh;
+    float: right;
+    width: 40%;
+    margin-right: 20px;
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 32vh;
+    width: 50vw;
+    margin: 20px;
+    border-radius: 40px; 
+}
+
+.image{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 13%;
+    border-bottom-left-radius: 13%;
+}
+
+.info{
+    height: 100%;
+    width: 50%;
+    padding-left: 20px;
+    border-top-right-radius: 13%;
+    border-bottom-right-radius: 13%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p{
+    font-size: 100%;
+    font-weight: bolder;
+    text-wrap: wrap;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+    border-top-left-radius: 13%;
+    border-bottom-left-radius: 13%;
+}
+
+@media screen and (min-width:767px) and (max-width:1000px){
+    .container{
+        display: flex;
+        flex-direction: row;
+        height: 27vh;
+        width: 80vw;
+        margin: 20px;
+        border-radius: 40px;
+    }
+    .image{
+        width: 60%;
+    }
+    nav{
+        width: 90%;
+        overflow-x: scroll;
+    }
+    a{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    aside{
+        display: none;
+    }
+    input{
+        width: 80%;
+    }
+    .submit{
+        width: 15%;
+    }
+}
+
+@media screen  and (max-width:767px) {
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        height: 45vh;
+        width: 75vw;
+        margin: 20px;
+        border-radius: 40px;
+    }
+    .image{
+        border-top-left-radius: 15px !important;
+        border-bottom-left-radius: 0;
+        width: 100%;
+        height: 57%;
+
+    }
+    .info{
+        height: 43%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+        padding-left: 0px !important;
+    }
+    nav{
+        width: 90%;
+        overflow-x: scroll;
+    }
+    a{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .search{
+        width: 60vw;
+    }
+    input{
+        width: 80%;
+    }
+    .submit{
+        width: 15%;
+    }
+    aside{
+        display: none;
+    }
+    img{
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0 !important;
+    }
+    .slide{
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px;
+    }
+    .item{
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px;
+    }
+    .price{
+        width: 85% !important;
+        padding: 5px;
+        font-size: 100%;
+    }
+    iframe{
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0 !important;
+    }
+}
+
+.slide{
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+    border-top-left-radius: 13%;
+    border-bottom-left-radius: 13%;
+}
+
+.item{
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+    border-top-left-radius: 13%;
+    border-bottom-left-radius: 13%;
+}
+
+.item:nth-child(1){
+    display: block;
+    object-fit: cover;
+}
+
+.item:nth-child(2){
+    display: none;
+}
+
+.item:nth-child(3){
+    display: none;
+}
+
+.item:nth-child(4){
+    display: none;
+}
+
+.item:nth-child(5){
+    display: none;
+}
+
+.item:nth-child(6){
+    display: none;
+}
+.item:nth-child(6){
+    display: none;
+}
+
+.prev{
+    size: 50px;
+    background: transparent;
+    margin: 5px;
+}
+
+.next{
+    size: 50px;
+    background: transparent;
+    margin: 5px;
+}
+
+.slideNav{
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+.image:hover .slideNav{
+    display: flex;
+}
+
+.footer{
+    background-color: rgb(39, 39, 39);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0px;
+
+}
+.about , .contact , .developer{
+    margin: 15px;
+}
+
+
+.name{
+    margin: 5px;
+    height: 12%;
+    font-size: larger;
+    padding-left: 5px;
+    margin-left: 15px;
+    font-weight: bolder;
+    justify-items: center;
+    margin-top: 10px;
+}
+
+
+.price{  
+    height: 15%;
+    width: 70%;
+    font-size: large;
+    font-weight: bolder;
+    box-shadow: 0px 0px 10px black;
+    margin: 2px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    align-items: center;
+}
+
+
+.location{
+    width: 90%;
+    height: 15%;
+    font-size: large;
+    padding-left: 5px;
+    margin-left: 15px;
+    justify-items: center;
+}
+
+
+.class{
+    width: 90%; 
+    font-size: larger;
+    padding-left: 5px;
+    margin-left: 15px;
+    font-weight: bolder;
+    justify-items: center;
+}
+
+
+.button{
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+
+.d_but{
+    height: 30px;
+    text-align: center;
+    box-shadow: 0px 0px 5px black;
+    margin: 10px;
+    width: 60px;
+    border-radius: 8px;
+    background-color: rgba(0, 238, 255, 0.774);
+    color: white;
+    font-weight: bold;
+}
+
+.icon{
+    height: 20px;
+    width: 20px;
+}
+
+.icons{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

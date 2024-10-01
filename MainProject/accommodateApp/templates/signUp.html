@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>signup</title>
+        <link href="{% static 'css/signUpStyle.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                {{ message.message }}
+            {% endfor %}
+        {% endif%}
+        <div class="main">
+            <form method="POST" action="register">
+                {% csrf_token %}
+                <p class="start">GET STARTED</p>
+
+                <label>First Name</label>
+                <input type="text" name="first_name"> 
+
+                <label>Last Name</label>
+                <input type="text" name="last_name" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Username</label>
+                <input type="text" name="username" required>
+
+                <label>Password</label>
+                <input type="password" name="password" required>
+
+                <label>Confirm Password</label>
+                <input type="password" name="con_password" required>
+
+                <button class="signup_b">signup</button>
+
+                <div class="options">
+                    <button type="submit" class="Google_b">Continue With</br> Google</button>
+                    <p>already have an account?<a href="{%url 'signUpTologin' %}"></br>Log in Here😊</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="side">
+            <h2><i>ACCOMMODATEGH</i></h2>
+            <p class="side_info">get started with us to easily find a hostel,hotel or an apartment</p>
+        </div>
+    </body>
+</html>
