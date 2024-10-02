@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-rqf^v03@xk3&u1x5zsa_tq834b*(a!_@hm(r8!98m@gq-cr!l$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['getspacegh-production123.up.railway.app', 'https://getspacegh-production123.up.railway.app']
-CSRF_TRUSTED_ORIGINS = [ 'https://getspacegh-production123.up.railway.app']
+ALLOWED_HOSTS = ['https://getspacegh.com','getspacegh.com', ]
+CSRF_TRUSTED_ORIGINS = [ 'https://getspacegh.com',]
 
 
 # Application definition
