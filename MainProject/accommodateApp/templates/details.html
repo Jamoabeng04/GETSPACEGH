@@ -33,8 +33,8 @@
                     </div>
                 </div>
                 <div class="details2">
-                    <div class="num"><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="https://wa.me/{{products.manager.whatsapp}}" >{{products.manager.whatsapp}}</a></div>
-                    <div class="num"><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="tel:{{products.manager.phone}}" >{{products.manager.phone}}</a> </div>
+                    <div class="num"><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="https://wa.me/{{products.manager.whatsapp}}" >CHAT</a></div>
+                    <div class="num"><img class="con_icons" src="{%static 'images/phone-call.png'%}"> <a href="tel:{{products.manager.phone}}" >CALL</a> </div>
                 </div>
                 <div class="details">
                     <div class="icons">
@@ -64,9 +64,7 @@
                     </div>
                     <div class="content">
                         <div>
-                            <p>{{products.country}}</p>
-                            <p>{{products.state}}</p>
-                            <p>{{products.vicinity}}</p>
+                            {{products.country}} - {{products.state}},{{products.vicinity}}
                         </div>
                         <div>
                             {{products.landmark}}
@@ -96,6 +94,9 @@
                     <div class="content">
                         <div>
                             {{products.rooms}}
+                            {% for rooms in rooms1 %}
+                                <ol>{{rooms.name}}</br>{{rooms.price}}</br>{{rooms.des}}</br></ol>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -105,6 +106,9 @@
                     </div>
                     <div class="content">
                         {{products.amenities}}
+                        {% for amn in amenities %}
+                            <ol>{{ amn.name }}</ol>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="rooms">

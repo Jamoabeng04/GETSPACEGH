@@ -71,6 +71,8 @@ def signUpTologin(request):
 def productDetails(request, pk):
     products  = Product.objects.get(id=pk)
     context = {'products': products}
+    rooms1 = products.rooms.all()
+    amenities = products.amenities.all()
     return render(request, 'details.html', context)
 
 

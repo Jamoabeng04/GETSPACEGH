@@ -27,8 +27,20 @@ class PriceRange(models.Model):
     def __str__(self):
         return self.name
 
+class Rooms(models.Model):
+    room = models.CharField(max_length=100, blank=True)
+    price = models.CharField(max_length=100, blank=True)
+    description =  models.CharField(max_length=300, blank=True)
 
-4
+    def __str__(self):
+        return self.room
+    
+class Amenities(models.Model):
+    name = models.CharField(max_length=100, blank=True)
+    def __str__(self):
+        return self.room
+
+
 class Product(models.Model):
     name = models.CharField(max_length=200, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
@@ -38,8 +50,8 @@ class Product(models.Model):
     country = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     vicinity = models.CharField(max_length=100)
-    rooms = models.TextField()
-    amenities = models.TextField()
+    rooms = models.ManyToManyField(Rooms,blank=True)
+    amenities = models.ManyToManyField(Rooms,blank=True)
     manager = models.ForeignKey(Manager, on_delete=models.CASCADE, default=None)
     image1 = models.ImageField(upload_to='uploads/products/')
     image2 = models.ImageField(upload_to='uploads/products/', null=True)
