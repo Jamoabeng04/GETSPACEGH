@@ -70,9 +70,10 @@ def signUpTologin(request):
 
 def productDetails(request, pk):
     products  = Product.objects.get(id=pk)
+    items = Product.objects.order_by('-created_at').get(id=pk)
     rooms1 = products.rooms.all()
     amenities = products.amenities.all()
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities}
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, "items":items}
     return render(request, 'details.html', context)
 
 

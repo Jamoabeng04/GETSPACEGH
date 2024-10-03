@@ -63,7 +63,6 @@
                             {{products.country}} - {{products.state}},{{products.vicinity}}
                         </div>
                         <div>
-                            Landmark :
                             {{products.landmark}}
                         </div>
                     </div>
@@ -128,14 +127,14 @@
             </div>
             <h2>OTHER PRODUCTS</h2>
         <section>
-            {% for product in products%}
+            {% for item in items%}
             <div class="container">
                 <div class="image">
                     <div class="slide">
-                        <img class="item" src="{{product.image1.url}}" />
-                        <img class="item" src="{{product.image2.url}}" />
-                        <img class="item" src="{{product.image3.url}}" />
-                        <img class="item" src="{{product.image4.url}}" />
+                        <img class="item" src="{{item.image1.url}}" />
+                        <img class="item" src="{{item.image2.url}}" />
+                        <img class="item" src="{{item.image3.url}}" />
+                        <img class="item" src="{{item.image4.url}}" />
                     </div>
                     <div class="slideNav">
                         <button class="prev" onclick="prev(this)"><img class="icon" src="{%static 'images/left-chevron.png'%}"> </button>
@@ -144,16 +143,16 @@
                 </div>
                 <div class="info"> 
                     <div class="price">
-                        ${{product.price}} per month
+                        GH╡{{item.price}} per month
                     </div>
                     <div class="name">
-                        {{product.name}}
+                        {{item.name}}
                     </div>
                     <div class="location">
-                        {{product.state}},{{product.vicinity}}
+                        {{item.state}},{{item.vicinity}}
                     </div>
                     <div class="class">
-                        {{product.rate}}
+                        {{item.rate}}
                     </div>
                     <div class="button">
                         <div class="icons">
@@ -164,7 +163,7 @@
                             <img class="icon" src="{%static 'images/dislike.png'%}">
                             <img class="icon" src="{%static 'images/dislike.png'%}">
                         </div>
-                        <button class="d_but"><a href="{%url 'productDetails' product.id %}" > Details</a></button>
+                        <button class="d_but"><a href="{%url 'productDetails' item.id %}" > Details</a></button>
                     </div>
                 </div>
             </div>
