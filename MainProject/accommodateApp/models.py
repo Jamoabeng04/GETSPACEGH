@@ -38,7 +38,7 @@ class Rooms(models.Model):
 class Amenities(models.Model):
     name = models.CharField(max_length=100, blank=True)
     def __str__(self):
-        return self.room
+        return self.name
 
 
 class Product(models.Model):
