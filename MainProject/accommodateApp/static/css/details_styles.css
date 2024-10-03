@@ -300,11 +300,10 @@ iframe{
 }
 
 .footer{
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(26, 25, 25);
     color: white;
     display: flex;
     flex-direction: column;
-    position: sticky;
     top: 0px;
 
 }
