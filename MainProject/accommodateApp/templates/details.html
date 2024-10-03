@@ -95,7 +95,7 @@
                         <div>
                             {{products.rooms}}
                             {% for rooms in rooms1 %}
-                                <ol>{{rooms.room}}</br>{{rooms.price}}</br>{{rooms.description}}</br></ol>
+                                <ol>{{products.rooms.room}}</br>{{products.rooms.price}}</br>{{products.rooms.room.description}}</br></ol>
                             {% endfor %}
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                     <div class="content">
                         {{products.amenities}}
                         {% for amn in amenities %}
-                            <ol>{{ amn.name }}</ol>
+                            <ol>{{ products.amenities.name}}</ol>
                         {% endfor %}
                     </div>
                 </div>
