@@ -248,7 +248,7 @@ i{
     margin-right: 10px;
 }
 .des{
-    color: rgb(255, 255, 255);
+    color: rgb(37, 37, 37);
 }
 .rooms{
     width: 90%;
@@ -299,3 +299,15 @@ iframe{
     width: 100%;
 }
 
+.footer{
+    background-color: rgb(39, 39, 39);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0px;
+
+}
+.about , .contact , .developer{
+    margin: 15px;
+}
