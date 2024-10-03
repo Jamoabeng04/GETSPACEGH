@@ -64,6 +64,7 @@ class Product(models.Model):
     map = models.URLField(max_length=500, null=True, default=0)
     landmark = models.TextField(max_length=200, null=True, default=0)
     video = EmbedVideoField(blank=True,null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

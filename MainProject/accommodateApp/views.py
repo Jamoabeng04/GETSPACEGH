@@ -55,7 +55,7 @@ def log_in(request):
 
 
 def home(request): 
-    products  = Product.objects.all()
+    products = Product.objects.order_by('-created_at')
     context = {'products': products}
     return render(request,'homePage.html', context)
 
@@ -80,7 +80,7 @@ def search(request):
     query = request.GET.get('q')  
     products  = Product.objects.all()
     results = Product.objects.filter(Q(name__icontains = query)|Q(description__icontains = query)|Q(rate__icontains = query)|Q(price__icontains = query)) 
-    context = {'results': results,'products': products}
+    context = {'results': results,'products': products, 'query':query}
     return render(request, 'searchResults.html',context)
 
 

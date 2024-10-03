@@ -10,9 +10,9 @@
     </head>
     <body>
         <nav>
-            <div class="nav_des">back to home</div>
-            <div class="nav_des">accommodategh</div>
-            <div class="nav_des">user</div>
+            <a href="{%url 'home' %}"  ><div class="nav_des">back to home</div></a>
+            <div class="nav_des">getspacegh</div>
+            <div class="nav_des">{{user.username}}</div>
         </nav>
         <section>
             <div class="container">
@@ -33,25 +33,21 @@
                     </div>
                 </div>
                 <div class="details2">
-                    <div class="num"><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="https://wa.me/{{products.manager.whatsapp}}" >CHAT</a></div>
-                    <div class="num"><img class="con_icons" src="{%static 'images/phone-call.png'%}"> <a href="tel:{{products.manager.phone}}" >CALL</a> </div>
+                    <div class="num"><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="https://wa.me/{{products.manager.whatsapp}}" >WHATSAPP CHAT</a></div>
+                    <div class="num"><img class="con_icons" src="{%static 'images/phone-call.png'%}"> <a href="tel:{{products.manager.phone}}" >PHONE CALL</a> </div>
                 </div>
                 <div class="details">
-                    <div class="icons">
-                        <img class="small" src="{%static 'images/heart.png'%}">
-                        <img class="small" src="{%static 'images/like.png'%}">
-                        <img class="small" src="{%static 'images/dislike.png'%}">
-                    </div>
                     <div class="oth">{{products.state}},{{products.vicinity}}</div>
                     <div class="icons">
                         <img class="small" src="{%static 'images/heart.png'%}">
                         <img class="small" src="{%static 'images/like.png'%}">
                         <img class="small" src="{%static 'images/dislike.png'%}">
                     </div>
-                    <div class="oth">⭐5.0 </div>
+                    <div class="oth">{{products.condition}}</div>
+                    <div class="oth">{{products.rate}}</div>
                     <div class="contact">
-                        <div><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="https://wa.me/{{products.manager.whatsapp}}" >{{products.manager.whatsapp}}</a></div>
-                        <div><img class="con_icons" src="{%static 'images/phone-call.png'%}"> <a href="tel:{{products.manager.phone}}" >{{products.manager.phone}}</a></div>
+                        <div><img class="con_icons" src="{%static 'images/whatsapp.png'%}"> <a href="https://wa.me/{{products.manager.whatsapp}}" >WHATSAPPCHAT</a></div>
+                        <div><img class="con_icons" src="{%static 'images/phone-call.png'%}"> <a href="tel:{{products.manager.phone}}" >PHONE CALL</a></div>
                     </div>
                 </div>
             </div>
@@ -67,6 +63,7 @@
                             {{products.country}} - {{products.state}},{{products.vicinity}}
                         </div>
                         <div>
+                            Landmark :
                             {{products.landmark}}
                         </div>
                     </div>
@@ -96,7 +93,7 @@
                             <ol>
                             {% for rooms in rooms1 %}
                                 
-                                    <li>{{products.rooms.room}}</br>{{products.rooms.price}}</br>{{products.rooms.room.description}}</li>
+                                    <li>{{rooms.room}}</br>{{rooms.price}}</br>{{rooms.description}}</li>
                                 
                             {% endfor %}
                         </ol>
@@ -111,7 +108,7 @@
                         <ol>
                         {% for amn in amenities %}
                             
-                                <li>{{ products.amn.name}}</li>
+                                <li>{{amn.name}}</li>
                             
                         {% endfor %}
                         </ol>
@@ -129,6 +126,72 @@
                     <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             </div>
+            <h2>OTHER PRODUCTS</h2>
+        <section>
+            {% for product in products%}
+            <div class="container">
+                <div class="image">
+                    <div class="slide">
+                        <img class="item" src="{{product.image1.url}}" />
+                        <img class="item" src="{{product.image2.url}}" />
+                        <img class="item" src="{{product.image3.url}}" />
+                        <img class="item" src="{{product.image4.url}}" />
+                    </div>
+                    <div class="slideNav">
+                        <button class="prev" onclick="prev(this)"><img class="icon" src="{%static 'images/left-chevron.png'%}"> </button>
+                        <button class="next" onclick="next(this)"><img class="icon" src="{%static 'images/right-chevron.png'%}"></button>
+                    </div>
+                </div>
+                <div class="info"> 
+                    <div class="price">
+                        ${{product.price}} per month
+                    </div>
+                    <div class="name">
+                        {{product.name}}
+                    </div>
+                    <div class="location">
+                        {{product.state}},{{product.vicinity}}
+                    </div>
+                    <div class="class">
+                        {{product.rate}}
+                    </div>
+                    <div class="button">
+                        <div class="icons">
+                            <img class="icon" src="{%static 'images/heart.png'%}">
+                            <img class="icon" src="{%static 'images/like.png'%}">
+                            <img class="icon" src="{%static 'images/dislike.png'%}">
+                            <img class="icon" src="{%static 'images/dislike.png'%}">
+                            <img class="icon" src="{%static 'images/dislike.png'%}">
+                            <img class="icon" src="{%static 'images/dislike.png'%}">
+                        </div>
+                        <button class="d_but"><a href="{%url 'productDetails' product.id %}" > Details</a></button>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
         </section>
+        <footer class="footer">
+            <div class="about">
+                <h2>about</h2>
+                getspacegh is aimed at supporting you to easily find hostels, hotels, apartments,
+                homestels, houses, guesthouses and stores around you and also at any location. The 
+                site is updated everyday with the correct prices and current state of the place. 
+                Being on this site is just like being at the location itself. Enjoy!
+            </div>
+            <div class="contact">
+                <h2>contact</h2>
+                <p>instagram</p>
+                <p>X</p>
+                <p>telegram</p>
+                <p></p>
+            </div>
+            <div class="developer">
+                <h2>contact developer</h2>
+                <p>email: johnamoabeng7@gmail.com</p>
+                <p>whatsapp : +233 59 560 0880</p>
+                <p>telegram : +233 59 560 0880</p>
+                <p>website: ...</p>
+            </div>
+        </footer>
     </body>
 </html>

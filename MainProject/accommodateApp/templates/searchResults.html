@@ -4,20 +4,20 @@
     <head>
         <meta name="viewport" content="width=device-width , initial-scale=1.0">
         <meta charset="UTF-8">
-        <title>search results</title>
+        <title>{{query}}</title>
         <link href="{% static 'css/homePageStyle.css' %}" rel="stylesheet">
         <script src="{% static 'javaScript/scripts.js' %}" type="text/javascript"></script>
     </head>
     <body>
         <div class="top"> 
             <nav>
-                <a class="up_nav" href="">HOME</a>
-                <a class="up_nav" href="">ABOUT US</a>
-                <a class="up_nav" href="">CONTACT</a>
+                <a class="up_nav" href="{%url 'home' %}">HOME</a>
+                <a class="up_nav" href="#onPageLink1">ABOUT US</a>
+                <a class="up_nav" href="#onPageLink2">CONTACT</a>
                 <a class="up_nav" href="">FAQ</a>
             </nav>
             <div class="des">
-                <i class="title2">accommodategh </br> </br>SEARCH RESULTS</i>
+                <i class="title2">getspacegh </br> </br>SEARCH RESULTS</i>
             </div>
         </div>
         {% if results %}
@@ -81,7 +81,7 @@
                 </div>
                 <div class="info"> 
                     <div class="price">
-                        ${{product.price}} per month
+                        GH╡{{product.price}} per month
                     </div>
                     <div class="name">
                         {{product.name}}
@@ -108,14 +108,14 @@
             {%endfor%}
         </section>
         <footer class="footer">
-            <div class="about">
+            <div class="about" id="#onPageLink1">
                 <h2>about</h2>
-                accommodategh is aimed at supporting you to easily find hostels, hotels, apartments,
+                getspacegh is aimed at supporting you to easily find hostels, hotels, apartments,
                 homestels, houses, guesthouses and stores around you and also at any location. The 
                 site is updated everyday with the correct prices and current state of the place. 
                 Being on this site is just like being at the location itself. Enjoy!
             </div>
-            <div class="contact">
+            <div class="contact" id="#onPageLink2">
                 <h2>contact</h2>
                 <p>instagram</p>
                 <p>X</p>
