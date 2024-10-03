@@ -51,7 +51,7 @@ class Product(models.Model):
     state = models.CharField(max_length=100)
     vicinity = models.CharField(max_length=100)
     rooms = models.ManyToManyField(Rooms,blank=True)
-    amenities = models.ManyToManyField(Rooms,blank=True)
+    amenities = models.ManyToManyField(Amenities,blank=True)
     manager = models.ForeignKey(Manager, on_delete=models.CASCADE, default=None)
     image1 = models.ImageField(upload_to='uploads/products/')
     image2 = models.ImageField(upload_to='uploads/products/', null=True)
