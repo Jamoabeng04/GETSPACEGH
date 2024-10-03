@@ -125,49 +125,6 @@
                     <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             </div>
-            <h2>OTHER PRODUCTS</h2>
-        <section>
-            {% for item in items%}
-            <div class="container">
-                <div class="image">
-                    <div class="slide">
-                        <img class="item" src="{{item.image1.url}}" />
-                        <img class="item" src="{{item.image2.url}}" />
-                        <img class="item" src="{{item.image3.url}}" />
-                        <img class="item" src="{{item.image4.url}}" />
-                    </div>
-                    <div class="slideNav">
-                        <button class="prev" onclick="prev(this)"><img class="icon" src="{%static 'images/left-chevron.png'%}"> </button>
-                        <button class="next" onclick="next(this)"><img class="icon" src="{%static 'images/right-chevron.png'%}"></button>
-                    </div>
-                </div>
-                <div class="info"> 
-                    <div class="price">
-                        GH╡{{item.price}} per month
-                    </div>
-                    <div class="name">
-                        {{item.name}}
-                    </div>
-                    <div class="location">
-                        {{item.state}},{{item.vicinity}}
-                    </div>
-                    <div class="class">
-                        {{item.rate}}
-                    </div>
-                    <div class="button">
-                        <div class="icons">
-                            <img class="icon" src="{%static 'images/heart.png'%}">
-                            <img class="icon" src="{%static 'images/like.png'%}">
-                            <img class="icon" src="{%static 'images/dislike.png'%}">
-                            <img class="icon" src="{%static 'images/dislike.png'%}">
-                            <img class="icon" src="{%static 'images/dislike.png'%}">
-                            <img class="icon" src="{%static 'images/dislike.png'%}">
-                        </div>
-                        <button class="d_but"><a href="{%url 'productDetails' item.id %}" > Details</a></button>
-                    </div>
-                </div>
-            </div>
-            {%endfor%}
         </section>
         <footer class="footer">
             <div class="about">
