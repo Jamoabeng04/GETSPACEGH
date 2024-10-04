@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate,login
-from .models import Manager, Product,Category,PriceRange
+from .models import Manager, Product,Category,PriceRange, Comment
 from django.db.models import Q
 
 # Create your views here.
@@ -70,11 +70,19 @@ def signUpTologin(request):
 
 def productDetails(request, pk):
     products  = Product.objects.get(id=pk)
-    items = Product.objects.order_by('-created_at').get(id=pk)
     rooms1 = products.rooms.all()
     amenities = products.amenities.all()
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, "items":items}
+    comments = Comment.objects.filter(products=products)
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, 'comments':comments}
     return render(request, 'details.html', context)
+
+def comment(request, pk):
+    if request.method == 'POST':
+        products  = Product.objects.get(id=pk)
+        comment = request.POST.get('comment')
+        Comment.objects.create(products=products, comment = comment)
+        return redirect('productDetails', pk=pk)
+
 
 
 def search(request):
