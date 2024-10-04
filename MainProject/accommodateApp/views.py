@@ -78,7 +78,7 @@ def productDetails(request, pk):
         content = request.POST.get('content')
 
         review = ProductReview.objects.create(products=products,user=request.user,stars =stars,content=content)
-        
+        return redirect('productDetails', id=pk)
 
     
     context = {'products': products, 'rooms1':rooms1, 'amenities':amenities}

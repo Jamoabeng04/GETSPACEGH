@@ -328,11 +328,11 @@ iframe{
     display: flex; /* Arrange elements horizontally */
     flex-direction: column; /* Stack elements vertically */
     margin-bottom: 20px; /* Add some bottom margin */
-    border: 1px solid #ddd; /* Optional border for better separation */
+    border: 1px solid #000000; /* Optional border for better separation */
     padding: 15px; /* Add some padding */
   }
   
-  .comment form {
+ form {
     /* Styles for the review form */
     display: flex;
     flex-direction: column; /* Stack form elements vertically */
@@ -345,8 +345,7 @@ iframe{
     margin-bottom: 5px; /* Add some space below labels */
   }
   
-  .comment form select,
-  .comment form textarea {
+ select,textarea {
     /* Styles for select and textarea elements */
     border: 1px solid #ccc;
     padding: 5px;
@@ -354,7 +353,7 @@ iframe{
     width: 100%; /* Take up full width on smaller screens */
   }
   
-  .comment form button {
+.submit {
     /* Styles for the submit button */
     background-color: #4CAF50; /* Green color for submit button */
     color: white;
@@ -370,7 +369,7 @@ iframe{
       flex-direction: row; /* Arrange elements side-by-side */
     }
     
-    .comment form {
+     form {
       width: 60%; /* Make form take up 60% width on larger screens */
     }
   }
