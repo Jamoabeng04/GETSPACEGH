@@ -129,8 +129,8 @@
                         <div class="content">
                             <div>
                                 <ol>
-                                    {% for comment in comments %}
-                                        <li>{{comment.comment}} <sub>{{comment.created_at|date:"Y-m-d H:i:s"}}</sub></li>
+                                    {% for review in products.reviews.all%}
+                                        <li>{{comment.rate}}<br>{{comment.comment}} <sub>{{comment.created_at|date:"Y-m-d H:i:s"}}</sub></li>
                                     {%endfor%}
                                 </ol>
                             </div>
@@ -139,10 +139,18 @@
 
                 </div>
                 <div class="comment">
-                    <form action='comment' method="POST">
+                    <form method="POST">
                         {% csrf_token %}
+                        <b>star rating</b>
+                        <select name="rate">
+                            <option value="⭐">1</option>
+                            <option value="⭐⭐">2</option>
+                            <option value="⭐⭐⭐" selected>3</option>
+                            <option value="⭐⭐⭐⭐">4</option>
+                            <option value="⭐⭐⭐⭐⭐">5</option>
+                        </select>
                         <b>leave a comment here</b>
-                        <input type="text" name="comment" placeholder="leave a comment">
+                        <textarea  name="comment" placeholder="leave a comment"></textarea>
                         <button type="submit" class="submit">post</button>
                     </form>
                 </div>
@@ -150,28 +158,5 @@
                     <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="about" id="onPageLink1">
-                    <h2>about</h2>
-                    getspacegh is aimed at supporting you to easily find hostels, hotels, apartments,
-                    homestels, houses, guesthouses and stores around you and also at any location. The 
-                    site is updated everyday with the correct prices and current state of the place. 
-                    Being on this site is just like being at the location itself. Enjoy!
-                </div>
-                <div class="contact" id="onPageLink2">
-                    <h2>contact</h2>
-                    <p>instagram</p>
-                    <p>X</p>
-                    <p>telegram</p>
-                    <p></p>
-                </div>
-                <div class="developer">
-                    <h2>contact developer</h2>
-                    <p>email: johnamoabeng7@gmail.com</p>
-                    <p>whatsapp : +233 59 560 0880</p>
-                    <p>telegram : +233 59 560 0880</p>
-                    <p>website: ...</p>
-                </div>
-            </footer>
         </section>
 </html>

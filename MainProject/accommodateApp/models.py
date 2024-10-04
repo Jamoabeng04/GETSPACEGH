@@ -1,6 +1,7 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -40,13 +41,7 @@ class Amenities(models.Model):
     def __str__(self):
         return self.name
 
-class Comment(models.Model):
-    comment = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True,blank=True)
-
-    def __str__(self):
-        return self.comment
-  
+ 
 
 class Product(models.Model):
     name = models.CharField(max_length=200, blank=True)
@@ -72,10 +67,19 @@ class Product(models.Model):
     landmark = models.TextField(max_length=200, null=True, default=0)
     video = EmbedVideoField(blank=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True,blank=True)
-    comments = models.ManyToManyField(Comment, related_name='products')
 
 
     def __str__(self):
         return self.name
 
   
+class Comment(models.Model):
+    products = models.ForeignKey(Product, on_delete=models.CASCADE, default=None, related_name='comments')
+    name = models.ForeignKey(User,on_delete=models.CASCADE, default=None, related_name='comments')
+    comment = models.TextField(blank=True)
+    rating = models.CharField(max_length=10, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True,blank=True)
+
+    def __str__(self):
+        return self.comment
+ 

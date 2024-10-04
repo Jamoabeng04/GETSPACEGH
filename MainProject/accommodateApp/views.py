@@ -72,27 +72,30 @@ def productDetails(request, pk):
     products  = Product.objects.get(id=pk)
     rooms1 = products.rooms.all()
     amenities = products.amenities.all()
-    comments = products.comments.all()
 
     if request.method == 'POST':
-        comment_text = request.POST.get('comment')
-        comment = Comment.objects.create(text=comment_text)
-        products.comments.add(comment)
-        return redirect('product_detail', pk=products.id)
+        rating = request.POST.get('rate')
+        comments = request.POST.get('comment', '')
+
+        if comments or rating:
+            reviews = Comment.objects.filter(name = request.user, products= products)
+            if reviews.count() > 0:
+                review = reviews.first()
+                review.rating = rating
+                review.comments = comments
+                review.save()
+        else:
+            review = Comment.objects.create(
+                products=products,
+                rating = rating,
+                comments=comments,
+                name=request.user)   
+        return redirect('product_detail', id=pk)
     
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, 'comments':comments}
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,}
     return render(request, 'details.html', context)
 
-def comment(request, pk):
-    if request.method == 'POST':
-        comment_text = request.POST.get('comment')
-        comment = Comment.objects.create(text=comment_text)
-        product = Product.objects.get(id=pk)
-        product.comments.add(comment)
-        rooms1 = product.rooms.all()
-        amenities = product.amenities.all()
-        context = {'products': product, 'rooms1':rooms1, 'amenities':amenities, 'comments':comment}
-        return render(request, 'details.html', context)
+
 
 
 def search(request):
