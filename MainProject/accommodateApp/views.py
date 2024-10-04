@@ -73,7 +73,13 @@ def productDetails(request, pk):
     rooms1 = products.rooms.all()
     amenities = products.amenities.all()
 
- 
+    if request.method == 'POST' and request.user.is_authenticated:
+        stars = request.POST.get('rate')
+        content = request.POST.get('content')
+
+        review = ProductReview.objects.create(products=products,user=request.user,stars =stars,content=content)
+        
+
     
     context = {'products': products, 'rooms1':rooms1, 'amenities':amenities}
     return render(request, 'details.html', context)
