@@ -85,14 +85,13 @@ def productDetails(request, pk):
                 review.comment = comment
                 review.save()
             else:
-                review = Comment.objects.create(
+                reviews = Comment.objects.create(
                     products=products,
                     rating = rating,
                     comment=comment,
-                    name=request.user)   
-            return redirect('/productDetails', id=pk)
+                    name=request.user)  
     
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,}
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, 'reviews':reviews,'rating':rating}
     return render(request, 'details.html', context)
 
 
