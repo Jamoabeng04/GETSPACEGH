@@ -89,7 +89,10 @@ def comment(request, pk):
         comment = Comment.objects.create(text=comment_text)
         product = Product.objects.get(id=pk)
         product.comments.add(comment)
-        return redirect('product_detail', pk=product.id)
+        rooms1 = product.rooms.all()
+        amenities = product.amenities.all()
+        context = {'products': product, 'rooms1':rooms1, 'amenities':amenities, 'comments':comment}
+        return render(request, 'details.html', context)
 
 
 def search(request):
