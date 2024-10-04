@@ -79,7 +79,7 @@ def productDetails(request, pk):
 
         review = ProductReview.objects.create(products=products,user=request.user,stars =stars,content=content)
 
-        return redirect('productDetails',id=pk)
+        return redirect('redirect_to_productDetails', id=pk)
     
     context = {'products': products, 'rooms1':rooms1, 'amenities':amenities}
     return render(request, 'details.html', context)
