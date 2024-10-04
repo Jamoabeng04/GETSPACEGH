@@ -144,7 +144,7 @@
                     {% if request.user.is_authenticated%}
                     <form method="POST" action="{% url 'productDetails' pk=products.id %}">
                         {% csrf_token %}
-                        <b>star rating</b>
+                        <b>star rating</b> 
                         <select name="rate">
                             <option value="⭐">⭐</option>
                             <option value="⭐⭐">⭐⭐</option>

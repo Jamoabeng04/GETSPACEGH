@@ -321,3 +321,56 @@ iframe{
 .content2{
     border: 1px solid black;
 }
+
+
+.comment {
+    /* Base styles for the comment section */
+    display: flex; /* Arrange elements horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    margin-bottom: 20px; /* Add some bottom margin */
+    border: 1px solid #ddd; /* Optional border for better separation */
+    padding: 15px; /* Add some padding */
+  }
+  
+  .comment form {
+    /* Styles for the review form */
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    width: 100%; /* Take up full width on smaller screens */
+  }
+  
+  .comment form label {
+    /* Styles for labels */
+    font-weight: bold;
+    margin-bottom: 5px; /* Add some space below labels */
+  }
+  
+  .comment form select,
+  .comment form textarea {
+    /* Styles for select and textarea elements */
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 10px; /* Add some space between elements */
+    width: 100%; /* Take up full width on smaller screens */
+  }
+  
+  .comment form button {
+    /* Styles for the submit button */
+    background-color: #4CAF50; /* Green color for submit button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  @media (min-width: 768px) {
+    /* Styles for screens wider than 768px (tablets and desktops) */
+    .comment {
+      flex-direction: row; /* Arrange elements side-by-side */
+    }
+    
+    .comment form {
+      width: 60%; /* Make form take up 60% width on larger screens */
+    }
+  }
