@@ -83,6 +83,13 @@ def productDetails(request, pk):
     context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, 'comments':comments}
     return render(request, 'details.html', context)
 
+def comment(request, pk):
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment')
+        comment = Comment.objects.create(text=comment_text)
+        product = Product.objects.get(id=pk)
+        product.comments.add(comment)
+        return redirect('product_detail', pk=product.id)
 
 
 def search(request):
