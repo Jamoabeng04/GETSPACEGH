@@ -130,7 +130,7 @@
                             <div>
                                 <ol>
                                     {% for review in products.reviews.all%}
-                                        <li>{{comment.rate}}<br>{{comment.comment}} <sub>{{comment.created_at|date:"Y-m-d H:i:s"}}</sub></li>
+                                        <li>{{review.rate}}<br>{{review.comment}} <sub>{{review.created_at|date:"Y-m-d H:i:s"}}</sub></li>
                                     {%endfor%}
                                 </ol>
                             </div>

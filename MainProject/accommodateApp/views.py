@@ -75,20 +75,20 @@ def productDetails(request, pk):
 
     if request.method == 'POST':
         rating = request.POST.get('rate')
-        comments = request.POST.get('comment', '')
+        comment = request.POST.get('comment', '')
 
-        if comments or rating:
+        if comment or rating:
             reviews = Comment.objects.filter(name = request.user, products= products)
             if reviews.count() > 0:
                 review = reviews.first()
                 review.rating = rating
-                review.comments = comments
+                review.comment = comment
                 review.save()
             else:
                 review = Comment.objects.create(
                     products=products,
                     rating = rating,
-                    comments=comments,
+                    comment=comment,
                     name=request.user)   
             return redirect('/productDetails', id=pk)
     
