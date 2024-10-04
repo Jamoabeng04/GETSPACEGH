@@ -3,8 +3,10 @@ body{
     flex-direction: column;
 }
 section{
-    display: grid;
-    place-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: auto;
 }
 nav{
@@ -105,8 +107,8 @@ nav{
     align-items: center;
 }
 .con_icons{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
 }
 img{
     height: 100%;
@@ -246,6 +248,7 @@ i{
     flex-direction: column;
     justify-self: center;
     margin-right: 10px;
+    margin-bottom: 15px;
 }
 .des{
     color: rgb(37, 37, 37);
@@ -300,12 +303,15 @@ iframe{
 }
 
 .footer{
+    height: auto;
     background-color: rgb(39, 39, 39);
     color: white;
     display: flex;
     flex-direction: column;
     position: sticky;
     top: 0px;
+    position: absolute;
+    bottom: 0;
 
 }
 .about , .contact , .developer{
