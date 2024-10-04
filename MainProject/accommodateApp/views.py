@@ -72,16 +72,16 @@ def productDetails(request, pk):
     products  = Product.objects.get(id=pk)
     rooms1 = products.rooms.all()
     amenities = products.amenities.all()
-    comments = Comment.objects.filter(products=products)
+    comments = products.comments.all()
+
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment')
+        comment = Comment.objects.create(text=comment_text)
+        products.comments.add(comment)
+        return redirect('product_detail', pk=products.id)
+    
     context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, 'comments':comments}
     return render(request, 'details.html', context)
-
-def comment(request, pk):
-    if request.method == 'POST':
-        products  = Product.objects.get(id=pk)
-        comments = request.POST.get('comment')
-        Comment.objects.create(products=products, comments = comments)
-        return redirect('productDetails', pk=pk)
 
 
 
