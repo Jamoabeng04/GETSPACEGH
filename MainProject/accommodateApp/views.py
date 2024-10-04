@@ -90,7 +90,7 @@ def productDetails(request, pk):
                 rating = rating,
                 comments=comments,
                 name=request.user)   
-        return redirect('product_detail', id=pk)
+        return redirect('/productDetail', id=pk)
     
     context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,}
     return render(request, 'details.html', context)
