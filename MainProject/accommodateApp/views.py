@@ -79,8 +79,8 @@ def productDetails(request, pk):
 def comment(request, pk):
     if request.method == 'POST':
         products  = Product.objects.get(id=pk)
-        comment = request.POST.get('comment')
-        Comment.objects.create(products=products, comment = comment)
+        comments = request.POST.get('comment')
+        Comment.objects.create(products=products, comments = comments)
         return redirect('productDetails', pk=pk)
 
 

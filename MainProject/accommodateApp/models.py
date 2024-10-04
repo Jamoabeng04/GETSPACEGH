@@ -41,6 +41,8 @@ class Amenities(models.Model):
         return self.name
 
 
+  
+
 class Product(models.Model):
     name = models.CharField(max_length=200, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
@@ -66,11 +68,14 @@ class Product(models.Model):
     video = EmbedVideoField(blank=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True,blank=True)
 
+
     def __str__(self):
         return self.name
 
+  
 class Comment(models.Model):
     products = models.ForeignKey(Product, on_delete=models.CASCADE)
     comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True,blank=True)
-    
+    def __str__(self):
+        return self.comment
