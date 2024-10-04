@@ -130,7 +130,7 @@
                             <div>
                                 <ol>
                                     {% for review in products.reviews.all %}
-                                        <li>{{review.rating}}<br>{{review.comment}} <sub>{{review.name}},{{review.created_at|date:"Y-m-d H:i:s"}}</sub></li>
+                                        <li>{{review.stars}}<br>{{review.content}} <sub>{{review.user}},{{review.created_at|date:"Y-m-d H:i:s"}}</sub></li>
                                     {% empty %}    
                                     No Reviews yet
                                     {%endfor%}
