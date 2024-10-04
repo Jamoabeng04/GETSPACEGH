@@ -129,9 +129,9 @@
                         <div class="content">
                             <div>
                                 <ol>
-                                    {{ for comment in comments }}
-                                        <li>{{comment.comment}} <sub>{{date:comment.created_at}}</sub></li>
-                                    {{endfor}}
+                                    {% for comment in comments %}
+                                        <li>{{comment.comment}} <sub>{{comment.created_at|date:"Y-m-d H:i:s"}}</sub></li>
+                                    {%endfor%}
                                 </ol>
                             </div>
                         </div>
