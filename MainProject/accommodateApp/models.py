@@ -81,5 +81,5 @@ class ProductReview(models.Model):
     created_at = models.DateTimeField(auto_now_add=True,blank=True)
 
     def __str__(self):
-        return self.comment
+        return self.content
  
