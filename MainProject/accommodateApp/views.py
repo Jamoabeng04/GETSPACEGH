@@ -78,20 +78,9 @@ def productDetails(request, pk):
         comment = request.POST.get('comment', '')
 
         if comment or rating:
-            reviews = Comment.objects.filter(name = request.user, products= products)
-            if reviews.count() > 0:
-                review = reviews.first()
-                review.rating = rating
-                review.comment = comment
-                review.save()
-            else:
-                reviews = Comment.objects.create(
-                    products=products,
-                    rating = rating,
-                    comment=comment,
-                    name=request.user)  
+            reviews = Comment.objects.create(products=products,rating = rating,comment=comment,name=request.user)
     
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities, 'reviews':reviews,'rating':rating}
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,'reviews':reviews}
     return render(request, 'details.html', context)
 
 
