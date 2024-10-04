@@ -76,11 +76,10 @@ def productDetails(request, pk):
     if request.method == 'POST':
         rating = request.POST.get('rate')
         comment = request.POST.get('comment', '')
-        reviews = []
-        if comment or rating:
-            reviews = Comment.objects.create(products=products,rating = rating,comment=comment,name=request.user)
+        Comment.objects.create(products=products,rating = rating,comment=comment,name=request.user)
+        comments = Comment.objects.filter(products=products)
     
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,'reviews':reviews}
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,'comments':comments}
     return render(request, 'details.html', context)
 
 
