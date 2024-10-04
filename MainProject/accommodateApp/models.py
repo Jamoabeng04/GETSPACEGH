@@ -73,11 +73,11 @@ class Product(models.Model):
         return self.name
 
   
-class Comment(models.Model):
-    products = models.ForeignKey(Product, on_delete=models.CASCADE, default=None, related_name='comments')
-    name = models.ForeignKey(User,on_delete=models.CASCADE, default=None, related_name='comments')
-    comment = models.TextField(blank=True)
-    rating = models.CharField(max_length=10, blank=True)
+class ProductReview(models.Model):
+    products = models.ForeignKey(Product, on_delete=models.CASCADE, default=None, related_name='reviews')
+    user = models.ForeignKey(User,on_delete=models.CASCADE, default=None, related_name='reviews')
+    content = models.TextField(blank=True)
+    stars = models.CharField(max_length=10, blank=True)
     created_at = models.DateTimeField(auto_now_add=True,blank=True)
 
     def __str__(self):

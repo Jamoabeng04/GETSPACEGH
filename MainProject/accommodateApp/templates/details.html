@@ -129,8 +129,10 @@
                         <div class="content">
                             <div>
                                 <ol>
-                                    {% for review in products.reviews%}
+                                    {% for review in products.reviews.all %}
                                         <li>{{review.rating}}<br>{{review.comment}} <sub>{{review.name}},{{review.created_at|date:"Y-m-d H:i:s"}}</sub></li>
+                                    {% empty %}    
+                                    No Reviews yet
                                     {%endfor%}
                                 </ol>
                             </div>
@@ -139,7 +141,8 @@
 
                 </div>
                 <div class="comment">
-                    <form method="POST">
+                    {% if request.user.is_authenticated%}
+                    <form method="POST" action=".">
                         {% csrf_token %}
                         <b>star rating</b>
                         <select name="rate">
@@ -150,9 +153,12 @@
                             <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
                         </select>
                         <b>leave a comment here</b>
-                        <textarea  name="comment" placeholder="leave a comment"></textarea>
+                        <textarea  name="content" placeholder="leave a comment"></textarea>
                         <button type="submit" class="submit">post</button>
                     </form>
+                    {%else%}
+                    <p>sign in to add a review</p>
+                    {%endif%}
                 </div>
                 <div class="map">
                     <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>

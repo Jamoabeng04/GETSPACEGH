@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate,login
-from .models import Manager, Product,Category,PriceRange, Comment
+from .models import Manager, Product,Category,PriceRange, ProductReview
 from django.db.models import Q
 
 # Create your views here.
@@ -73,13 +73,15 @@ def productDetails(request, pk):
     rooms1 = products.rooms.all()
     amenities = products.amenities.all()
 
-    if request.method == 'POST':
-        rating = request.POST.get('rate')
-        comment = request.POST.get('comment', '')
-        Comment.objects.create(products=products,rating = rating,comment=comment,name=request.user)
-        comments = Comment.objects.filter(products=products)
+    if request.method == 'POST' and request.user.is_authenticated:
+        stars = request.POST.get('rate')
+        content = request.POST.get('content')
+
+        review = ProductReview.objects.create(products=products,user=request.user,stars =stars,content=content)
+
+        return redirect('productDetails',id=pk)
     
-    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities,'comments':comments}
+    context = {'products': products, 'rooms1':rooms1, 'amenities':amenities}
     return render(request, 'details.html', context)
 
 
