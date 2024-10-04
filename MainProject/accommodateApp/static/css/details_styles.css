@@ -299,19 +299,7 @@ iframe{
     width: 100%;
 }
 
-.footer{
-    background-color: rgb(26, 25, 25);
-    color: white;
-    display: flex; /* Create a flex container */
-    justify-content: space-between; /* Distribute divs evenly */
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
 
-}
-footer div {
-    flex: 1; /* Allow divs to expand to fill available space */
-}
 
 .about , .contact , .developer{
     margin: 15px;
