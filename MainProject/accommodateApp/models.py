@@ -85,12 +85,11 @@ class ProductReview(models.Model):
 
 
 class Agents(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE,blank=True)
     name = models.CharField(max_length=100, blank=True)
-    whatsapp = models.CharField(max_length=20,default=0)
-    phone = models.CharField(max_length=20,default=0)
-    email = models.EmailField(max_length=300, blank=True)
-    username = models.CharField(max_length=100, blank=True)
-    password = models.CharField(max_length=200, blank=True)
+    whatsapp = models.CharField(max_length=20, default=0)
+    phone = models.CharField(max_length=20, default=0)
 
  
+
+            
+            

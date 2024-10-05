@@ -35,7 +35,7 @@ def AgentRegister(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         whatsapp = request.POST.get('whatsapp')
-        phone = request.POST.get('phone')
+        phone = request.POST.get('whatsapp')
         email = request.POST.get('email')
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -48,10 +48,10 @@ def AgentRegister(request):
             return redirect('/AgentRegister')
         
         if password==con_password:
-            user = User.objects.create_user(name=name,whatsapp=whatsapp,phone=phone,email=email,username=username)
+            user = User.objects.create_user(first_name=name,email=email,username=username)
             user.set_password(password)
             user.save()
-            agent = Agents.objects.create(user=user, is_staff=True)
+            agent = Agents.objects.create(user=user, name=name,whatsapp=whatsapp,phone=phone, is_staff=True)
             return redirect('/log_in')
         else:
             messages.info(request, "Password doesn't match")
