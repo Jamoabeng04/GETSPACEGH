@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate,login
-from .models import Manager, Product,Category,PriceRange, ProductReview
+from .models import Manager, Product,Category,PriceRange, ProductReview,Agents
 from django.db.models import Q
 
 # Create your views here.
@@ -31,6 +31,33 @@ def register(request):
             return redirect("/register")
     return render(request, 'signUp.html')
 
+def AgentRegister(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        whatsapp = request.POST.get('whatsapp')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        con_password = request.POST.get('con_password')
+
+        user = User.objects.filter(username = username, email = email)
+
+        if user.exists():
+            messages.info(request, "Username or email is taken")
+            return redirect('/AgentRegister')
+        
+        if password==con_password:
+            user = User.objects.create_user(name=name,whatsapp=whatsapp,phone=phone,email=email,username=username)
+            user.set_password(password)
+            user.save()
+            agent = Agents.objects.create(user=user, is_staff=True)
+            return redirect('/log_in')
+        else:
+            messages.info(request, "Password doesn't match")
+            return redirect("/AgentRegister")
+    return render(request, 'AgentSignUp.html')
+
 
 def log_in(request):
     if request.method == 'POST':
@@ -45,12 +72,18 @@ def log_in(request):
         user = authenticate(email=email,username=username,password=password)
 
         if user is None:
-            messages.error(request,"please check your passwors")
+            messages.error(request, 'Invalid credentials')
             return redirect('/log_in')
+
+        login(request, user)
+
+  
+        if user.is_staff:  
+            return redirect('/agent_dashboard')
         else:
-            login(request,user)
             return redirect('/home')
-    return render(request,'loginPage.html')
+
+    return render(request, 'loginPage.html')
 
 
 
@@ -67,6 +100,8 @@ def loginToSignUp(request):
 def signUpTologin(request):
     return render(request,'loginPage.html')
 
+def toAgentSignUp(request):
+    return render(request,'AgentSignUp.html')
 
 def productDetails(request, pk):
     products  = Product.objects.get(id=pk)

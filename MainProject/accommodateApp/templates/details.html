@@ -104,13 +104,13 @@
                         <h4>AMENITIES</h4>
                     </div>
                     <div class="content">
-                        <ol>
+                        <ul>
                         {% for amn in amenities %}
                             
                                 <li>{{amn.name}}</li>
                             
                         {% endfor %}
-                        </ol>
+                        </ul>
                     </div>
                 </div>
                 <div class="rooms">
@@ -128,13 +128,13 @@
                         </div>
                         <div class="content">
                             <div>
-                                <ol>
+                                <ul>
                                     {% for review in products.reviews.all %}
                                         <li>{{review.stars}}<br>{{review.content}} <sub>{{review.user}},{{review.created_at|date:"Y-m-d "}}</sub></li>
                                     {% empty %}    
                                     No Reviews yet
                                     {%endfor%}
-                                </ol>
+                                </ul>
                             </div>
                         </div>
                     </div>

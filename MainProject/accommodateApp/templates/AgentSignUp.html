@@ -14,16 +14,18 @@
             {% endfor %}
         {% endif%}
         <div class="main">
-            <a href="{%url 'toAgentSignUp' %}"></br>SIGNUP AS AN AGENT</a>
-            <form method="POST" action="register">
+            <form method="POST" action="AgentRegister">
                 {% csrf_token %}
                 <p class="start">GET STARTED</p>
 
-                <label>First Name</label>
-                <input type="text" name="first_name"> 
+                <label>Name</label>
+                <input type="text" name="name"> 
 
-                <label>Last Name</label>
-                <input type="text" name="last_name" required>
+                <label>Whatsapp Contact</label>
+                <input type="text" name="whatsapp" required>
+
+                <label>Phone</label>
+                <input type="text" name="phone" required>
 
                 <label>Email</label>
                 <input type="email" name="email" required>
@@ -38,16 +40,7 @@
                 <input type="password" name="con_password" required>
 
                 <button class="signup_b">signup</button>
-
-                <div class="options">
-                    <button type="submit" class="Google_b">Continue With</br> Google</button>
-                    <p>already have an account?<a href="{%url 'signUpTologin' %}"></br>Log in Here😊</a></p>
-                </div>
             </form>
-        </div>
-        <div class="side">
-            <h2><i>GETSPACEGH</i></h2>
-            <p class="side_info">Get started... to find a hostel, a hotel, an apartment and many others</p>
         </div>
     </body>
 </html>

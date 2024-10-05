@@ -269,7 +269,6 @@ i{
 .content > div{
     border: 0px solid rgba(51, 51, 51, 0.699);
     height: 100%;
-    text-align: center;
 }
 .content > span{
     flex: 0 0 25%;
@@ -351,6 +350,7 @@ iframe{
     padding: 5px;
     margin-bottom: 10px; /* Add some space between elements */
     width: 100%; /* Take up full width on smaller screens */
+    min-height: 50px;
   }
   
 .submit {
