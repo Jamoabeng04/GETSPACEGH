@@ -51,7 +51,7 @@ def AgentRegister(request):
             user = User.objects.create_user(first_name=name,email=email,username=username)
             user.set_password(password)
             user.save()
-            agent = Agents.objects.create(user=user, name=name,whatsapp=whatsapp,phone=phone, is_staff=True)
+            agent = Agents.objects.create(user=user,is_staff=True,whatsapp=whatsapp,phone=phone)
             return redirect('/log_in')
         else:
             messages.info(request, "Password doesn't match")
