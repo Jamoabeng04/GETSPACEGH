@@ -126,17 +126,20 @@
                         <div class="des">
                             <h4>REVIEWS</h4>
                         </div>
-                        <div class="content">
-                            <div>
-                                <ul>
-                                    {% for review in products.reviews.all %}
-                                        <li>{{review.stars}}<br>{{review.content}} <sub>{{review.user}},{{review.created_at|date:"Y-m-d "}}</sub></li>
-                                    {% empty %}    
-                                    No Reviews yet
-                                    {%endfor%}
-                                </ul>
+                        {% for review in products.reviews.all %}
+                        <div class="R_main">
+                            <div class="R_head">
+                                <strong>{{review.user}}</strong>
+                                <strong>{{review.created_at|date:"Y-m-d "}}</strong>
                             </div>
+                            <div class="R_content">
+                                <strong>{{review.stars}}</strong>
+                                <strong>{{review.content}}</strong>
+                            </div>
+                            {% empty %}    
+                            <strong>Be the first to comment</strong>
                         </div>
+                        {%endfor%}
                     </div>
 
                 </div>

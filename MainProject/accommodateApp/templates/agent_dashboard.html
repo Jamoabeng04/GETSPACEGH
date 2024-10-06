@@ -14,12 +14,12 @@
             {% endfor %}
         {% endif%}
         <div class="main">
-            <form method="POST" action="">
+            <form method="POST" action="AgentRegister">
                 {% csrf_token %}
                 <p class="start">GET STARTED</p>
 
                 <label>First Name</label>
-                <input type="text" name="firstname">  
+                <input type="text" name="firstname"> 
 
                 <label>Last Name</label>
                 <input type="text" name="lastname" required>
@@ -36,7 +36,7 @@
                 <label>Confirm Password</label>
                 <input type="password" name="con_password" required>
 
-                <button class="signup_b">POST</button>
+                <button class="signup_b">signup</button>
             </form>
         </div>
     </body>

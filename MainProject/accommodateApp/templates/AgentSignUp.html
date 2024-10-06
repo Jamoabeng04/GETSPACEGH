@@ -18,10 +18,13 @@
                 {% csrf_token %}
                 <p class="start">GET STARTED</p>
 
-                <label>Name</label>
-                <input type="text" name="name"> 
+                <label>First Name</label>
+                <input type="text" name="firstname"> 
 
-                <label>Whatsapp Contact</label>
+                <label>Last Name</label>
+                <input type="text" name="lastname" required>
+
+                <label>Whatsapp Contact<label>
                 <input type="text" name="whatsapp" required>
 
                 <label>Phone</label>

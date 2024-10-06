@@ -372,4 +372,35 @@ iframe{
      form {
       width: 60%; /* Make form take up 60% width on larger screens */
     }
-  }
+}
+
+
+.R_main{
+    width: 50%;
+    height: 90px;
+    background-color: rgb(179, 231, 231);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.R_head{
+    width: 90%;
+    height: 25px;
+    background-color: rgb(165, 213, 228);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.R_content{
+    width: 90%;
+    height: 70px;
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgb(65, 64, 64);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}

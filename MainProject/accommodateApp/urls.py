@@ -9,6 +9,7 @@ urlpatterns = [
     path('register', register, name="register"),
     path('AgentRegister', AgentRegister, name="AgentRegister"),
     path('home',home, name="home"),
+    path('agent_dashboard',agent_dashboard, name="agent_dashboard"),
     path('loginToSignUp', loginToSignUp, name="loginToSignUp"),
     path('signUpTologin', signUpTologin, name="signUpTologin" ),
     path('toAgentSignUp', toAgentSignUp, name="toAgentSignUp" ),
