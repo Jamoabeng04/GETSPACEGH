@@ -121,11 +121,14 @@
                         {{products.rules}}
                     </div>
                 </div>
+                <div class="des">
+                    <h4>REVIEWS</h4>
+                </div>
                 <div class="comment">
                     {% if request.user.is_authenticated%}
                     <form method="POST" action="{% url 'productDetails' pk=products.id %}">
                         {% csrf_token %}
-                        <b>star rating</b> 
+                        <b>RATING</b> 
                         <select name="rate">
                             <option value="⭐">⭐</option>
                             <option value="⭐⭐">⭐⭐</option>
@@ -133,7 +136,7 @@
                             <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
                             <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
                         </select>
-                        <b>leave a comment here</b>
+                        <b>COMMENT</b>
                         <textarea  name="content" placeholder="leave a comment"></textarea>
                         <button class="submit">post</button>
                     </form>
@@ -144,9 +147,7 @@
                 
                 <div class="dis_comment">
                     <div class="rooms">
-                        <div class="des">
-                            <h4>REVIEWS</h4>
-                        </div>
+                        
                         <div class="content">
                             <div>
                                     {% for review in products.reviews.all %}
