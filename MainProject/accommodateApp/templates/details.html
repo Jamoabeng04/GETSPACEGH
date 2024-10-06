@@ -121,13 +121,11 @@
                         {{products.rules}}
                     </div>
                 </div>
-
-
                 <div class="comment">
                     {% if request.user.is_authenticated%}
                     <form method="POST" action="{% url 'productDetails' pk=products.id %}">
                         {% csrf_token %}
-                        <b>RATING</b> 
+                        <b>star rating</b> 
                         <select name="rate">
                             <option value="⭐">⭐</option>
                             <option value="⭐⭐">⭐⭐</option>
@@ -135,7 +133,7 @@
                             <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
                             <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
                         </select>
-                        <b>COMMENT</b>
+                        <b>leave a comment here</b>
                         <textarea  name="content" placeholder="leave a comment"></textarea>
                         <button class="submit">post</button>
                     </form>
@@ -143,32 +141,36 @@
                     <p>sign in to add a review</p>
                     {%endif%}
                 </div>
-            </div>
-            <div class="rooms">
-                <div class="des">
-                    <h4>REVIEWS</h4>
-                </div>
-                <div>
-                    <div>
-                            {% for review in products.reviews.all %}
-                            <div class="R_main">
-                                <div class="R_head">
-                                    <strong>{{review.user}}</strong>
-                                    <strong>{{review.created_at|date:"Y-m-d "}}</strong>
-                                </div>
-                                <div class="R_content">
-                                    <strong>{{review.stars}}</strong>
-                                    <strong>{{review.content}}</strong>
-                                </div>
+                
+                <div class="dis_comment">
+                    <div class="rooms">
+                        <div class="des">
+                            <h4>REVIEWS</h4>
+                        </div>
+                        <div class="content">
+                            <div>
+                                    {% for review in products.reviews.all %}
+                                    <div class="R_main">
+                                        <div class="R_head">
+                                            <strong>{{review.user}}</strong>
+                                            <strong>{{review.created_at|date:"Y-m-d "}}</strong>
+                                        </div>
+                                        <div class="R_content">
+                                            <strong>{{review.stars}}</strong>
+                                            <strong>{{review.content}}</strong>
+                                        </div>
+                                    </div>
+                                    {% empty %}    
+                                    No Reviews yet
+                                    {%endfor%}
                             </div>
-                            {% empty %}    
-                            No Reviews yet
-                            {%endfor%}
+                        </div>
                     </div>
+
                 </div>
-            </div>
                 <div class="map">
                     <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
+            </div>
         </section>
 </html>
