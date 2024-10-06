@@ -104,13 +104,13 @@
                         <h4>AMENITIES</h4>
                     </div>
                     <div class="content">
-                        <ul>
+                        <ol>
                         {% for amn in amenities %}
                             
                                 <li>{{amn.name}}</li>
                             
                         {% endfor %}
-                        </ul>
+                        </ol>
                     </div>
                 </div>
                 <div class="rooms">
@@ -126,20 +126,24 @@
                         <div class="des">
                             <h4>REVIEWS</h4>
                         </div>
-                        {% for review in products.reviews.all %}
-                        <div class="R_main">
-                            <div class="R_head">
-                                <strong>{{review.user}}</strong>
-                                <strong>{{review.created_at|date:"Y-m-d "}}</strong>
+                        <div class="content">
+                            <div>
+                                    {% for review in products.reviews.all %}
+                                    <div class="R_main">
+                                        <div class="R_head">
+                                            <strong>{{review.user}}</strong>
+                                            <strong>{{review.created_at|date:"Y-m-d "}}</strong>
+                                        </div>
+                                        <div class="R_content">
+                                            <strong>{{review.stars}}</strong>
+                                            <strong>{{review.content}}</strong>
+                                        </div>
+                                    </div>
+                                    {% empty %}    
+                                    No Reviews yet
+                                    {%endfor%}
                             </div>
-                            <div class="R_content">
-                                <strong>{{review.stars}}</strong>
-                                <strong>{{review.content}}</strong>
-                            </div>
-                            {% empty %}    
-                            <strong>Be the first to comment</strong>
                         </div>
-                        {%endfor%}
                     </div>
 
                 </div>

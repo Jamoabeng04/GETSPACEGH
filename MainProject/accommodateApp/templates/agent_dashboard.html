@@ -16,25 +16,45 @@
         <div class="main">
             <form method="POST" action="AgentRegister">
                 {% csrf_token %}
-                <p class="start">GET STARTED</p>
+                <h2>ABOUT PRODUCT</h2>
+        <label> Name</label>
+        <input type="text" name="name" placeholder=""> 
 
-                <label>First Name</label>
-                <input type="text" name="firstname"> 
+        <label>Category</label>
+        <select name="cat">
+            <option value="hostel" selected>hostel</option>
+            <option value="hotel">hotel</option>
+            <option value="apartment" >apartment</option>
+        </select>
 
-                <label>Last Name</label>
-                <input type="text" name="lastname" required>
+        <label>Price</label>
+        <input type="text" name="price" placeholder="">
 
-                <label>Email</label>
-                <input type="email" name="email" required>
+        <label> Descriptions</label>
+        <input type="text" name="des" placeholder="">
 
-                <label>Username</label>
-                <input type="text" name="username" required>
+        <label> Name</label>
+        <input type="file" name="name" >
+        <label> Name</label>
+        <input type="file" name="name" >
+        <label> Name</label>
+        <input type="file" name="name" >
+        <label> Name</label>
+        <input type="file" name="name" >
+        <label> Name</label>
+        <input type="file" name="name" >
 
-                <label>Password</label>
-                <input type="password" name="password" required>
+        <label> country</label>
+        <input type="text" name="name" placeholder="">
 
-                <label>Confirm Password</label>
-                <input type="password" name="con_password" required>
+        <label> state</label>
+        <input type="file" name="name" placeholder="">
+
+        <label> vicinity</label>
+        <input type="file" name="name" placeholder="">
+
+        <label> Name</label>
+        <input type="file" name="name" placeholder="">
 
                 <button class="signup_b">signup</button>
             </form>

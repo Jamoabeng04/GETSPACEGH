@@ -49,7 +49,7 @@ def AgentRegister(request):
             return redirect('/AgentRegister')
         
         if password==con_password:
-            user = User.objects.create_user(firstname=firstname,lastname=lastname,email=email,username=username,is_staff=True)
+            user = User.objects.create_user(email=email,username=username,is_staff=True)
             user.set_password(password)
             user.is_staff = True
             user.save()
