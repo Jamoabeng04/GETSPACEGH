@@ -238,6 +238,9 @@ i{
     .details{
         display: none;
     }
+    .R_main{
+        width: 90%;
+    }
     
 }
 .container2{

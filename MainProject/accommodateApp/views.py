@@ -34,7 +34,7 @@ def register(request):
 def AgentRegister(request):
     if request.method == 'POST':
         firstname = request.POST.get('firstname')
-        lastname = request.POST.get('latname')
+        lastname = request.POST.get('lastname')
         whatsapp = request.POST.get('whatsapp')
         phone = request.POST.get('whatsapp')
         email = request.POST.get('email')
@@ -49,7 +49,7 @@ def AgentRegister(request):
             return redirect('/AgentRegister')
         
         if password==con_password:
-            user = User.objects.create_user(email=email,username=username,is_staff=True)
+            user = User.objects.create_user(firstname=firstname,lastname=lastname,email=email,username=username,is_staff=True)
             user.set_password(password)
             user.is_staff = True
             user.save()

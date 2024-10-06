@@ -121,6 +121,30 @@
                         {{products.rules}}
                     </div>
                 </div>
+                <div class="comment">
+                    {% if request.user.is_authenticated%}
+                    <form method="POST" action="{% url 'productDetails' pk=products.id %}">
+                        {% csrf_token %}
+                        <b>RATING</b> 
+                        <select name="rate">
+                            <option value="⭐">⭐</option>
+                            <option value="⭐⭐">⭐⭐</option>
+                            <option value="⭐⭐⭐" selected>⭐⭐⭐</option>
+                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                        </select>
+                        <b>COMMENT HERE</b>
+                        <textarea  name="content" placeholder="leave a comment"></textarea>
+                        <button class="submit">post</button>
+                    </form>
+                    {%else%}
+                    <p>sign in to add a review</p>
+                    {%endif%}
+                </div>
+                <div class="map">
+                    <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                </div>
+            </div>
                 <div class="dis_comment">
                     <div class="rooms">
                         <div class="des">
@@ -147,29 +171,5 @@
                     </div>
 
                 </div>
-                <div class="comment">
-                    {% if request.user.is_authenticated%}
-                    <form method="POST" action="{% url 'productDetails' pk=products.id %}">
-                        {% csrf_token %}
-                        <b>star rating</b> 
-                        <select name="rate">
-                            <option value="⭐">⭐</option>
-                            <option value="⭐⭐">⭐⭐</option>
-                            <option value="⭐⭐⭐" selected>⭐⭐⭐</option>
-                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-                        </select>
-                        <b>leave a comment here</b>
-                        <textarea  name="content" placeholder="leave a comment"></textarea>
-                        <button class="submit">post</button>
-                    </form>
-                    {%else%}
-                    <p>sign in to add a review</p>
-                    {%endif%}
-                </div>
-                <div class="map">
-                    <div><iframe src="{{products.map}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                </div>
-            </div>
         </section>
 </html>
