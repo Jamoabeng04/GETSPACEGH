@@ -129,7 +129,7 @@ def productDetails(request, pk):
 def search(request):
     query = request.GET.get('q')  
     products  = Product.objects.all()
-    results = Product.objects.filter(Q(name__icontains = query)|Q(description__icontains = query)|Q(rate__icontains = query)|Q(price__icontains = query)) 
+    results = Product.objects.filter(Q(name__icontains = query)|Q(description__icontains = query)|Q(rate__icontains = query)|Q(price__icontains = query)|Q(vicinity__icontains = query)) 
     context = {'results': results,'products': products, 'query':query}
     return render(request, 'searchResults.html',context)
 
