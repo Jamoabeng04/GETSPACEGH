@@ -22,42 +22,44 @@
         </div>
         {% if results %}
             {% for result in results%}
-            <div class="container">
-                <div class="image">
-                    <div class="slide">
-                        <img class="item" src="{{result.image1.url}}" />
-                        <img class="item" src="{{result.image2.url}}" />
-                        <img class="item" src="{{result.image3.url}}" />
-                        <img class="item" src="{{result.image4.url}}" />
-                    </div>
-                    <div class="slideNav">
-                        <button class="prev" onclick="prev(this)"><img class="icon" src="{%static 'images/left-chevron.png'%}"> </button>
-                        <button class="next" onclick="next(this)"><img class="icon" src="{%static 'images/right-chevron.png'%}"></button>
-                    </div>
-                </div>
-                <div class="info"> 
-                    <div class="price">
-                        GH╡{{product.price}} per month
-                    </div>
-                    <div class="name">
-                        {{product.name}}
-                    </div>
-                    <div class="location">
-                        {{product.state}},{{product.vicinity}}
-                    </div>
-                    <div class="class">
-                        {{product.rate}}
-                    </div>
-                    <div class="button">
-                        <div class="icons">
-                            <img class="icon" src="{%static 'images/heart.png'%}">
-                            <img class="icon" src="{%static 'images/like.png'%}">
-                            <img class="icon" src="{%static 'images/dislike.png'%}">
+                {% for product in products%}
+                    <div class="container">
+                        <div class="image">
+                            <div class="slide">
+                                <img class="item" src="{{result.image1.url}}" />
+                                <img class="item" src="{{result.image2.url}}" />
+                                <img class="item" src="{{result.image3.url}}" />
+                                <img class="item" src="{{result.image4.url}}" />
+                            </div>
+                            <div class="slideNav">
+                                <button class="prev" onclick="prev(this)"><img class="icon" src="{%static 'images/left-chevron.png'%}"> </button>
+                                <button class="next" onclick="next(this)"><img class="icon" src="{%static 'images/right-chevron.png'%}"></button>
+                            </div>
                         </div>
-                        <button class="d_but"><a href="{%url 'productDetails' pk %}" >Details</a></button>
+                        <div class="info"> 
+                            <div class="price">
+                                GH╡{{product.price}} per month
+                            </div>
+                            <div class="name">
+                                {{product.name}}
+                            </div>
+                            <div class="location">
+                                {{product.state}},{{product.vicinity}}
+                            </div>
+                            <div class="class">
+                                {{product.rate}}
+                            </div>
+                            <div class="button">
+                                <div class="icons">
+                                    <img class="icon" src="{%static 'images/heart.png'%}">
+                                    <img class="icon" src="{%static 'images/like.png'%}">
+                                    <img class="icon" src="{%static 'images/dislike.png'%}">
+                                </div>
+                                <button class="d_but"><a href="{%url 'productDetails' pk %}" >Details</a></button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                {%endfor%}
             {%endfor%}
         {%else%}
             <h2>No results for "{{query}}"</h2>
