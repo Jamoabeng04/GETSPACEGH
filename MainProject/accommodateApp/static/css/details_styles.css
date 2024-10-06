@@ -239,7 +239,7 @@ i{
         display: none;
     }
     .R_main{
-        width: 90%;
+        width: 90vw !important;
     }
     
 }
