@@ -34,7 +34,7 @@ def register(request):
 def AgentRegister(request):
     if request.method == 'POST':
         firstname = request.POST.get('firstname')
-        lastname = request.POST.get('lastname')
+        lastname = request.POST.get('latname')
         whatsapp = request.POST.get('whatsapp')
         phone = request.POST.get('whatsapp')
         email = request.POST.get('email')
@@ -49,10 +49,11 @@ def AgentRegister(request):
             return redirect('/AgentRegister')
         
         if password==con_password:
-            user = User.objects.create_user(email=email,username=username)
+            user = User.objects.create_user(firstname=firstname,lastname=lastname,email=email,username=username,is_staff=True)
             user.set_password(password)
+            user.is_staff = True
             user.save()
-            agent = Agents.objects.create(user=user,is_staff=True,whatsapp=whatsapp,phone=phone)
+            agent = Agents.objects.create(user=user,is_staff=True,firstname =firstname,lastname=lastname,whatsapp=whatsapp,phone=phone)
             return redirect('/log_in')
         else:
             messages.info(request, "Password doesn't match")
@@ -153,3 +154,5 @@ def pricerange(request, prid):
     except:
         messages.success(request, "Oops that price range does not exist yet")
         return redirect('/home')
+    
+    
